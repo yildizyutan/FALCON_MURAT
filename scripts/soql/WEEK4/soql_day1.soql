@@ -1,0 +1,24 @@
+// SELECT id, name, project_name__c FROM salesforce_project__c
+
+// SELECT id, name, mailingcity FROM contact WHERE name LIKE 'A%'
+
+// SELECT id, name FROM Account ORDER BY name
+
+// SELECT id, name FROM Account ORDER BY name DESC
+
+// SELECT ID, Name, Phone FROM Account WHERE phone != null
+
+
+//1
+// SELECT ID, Name FROM Account
+
+//2
+//SELECT ID, NAME, Project_name__c FROM Salesforce_Project__c
+
+//3 FILTERS - WHERE
+//SELECT ID, NAME, Mailing City FROM Contact WHERE MailingCity = 'Paris' 
+
+// SELECT id, name, phone FROM Account WHERE Phone != NULL AND AccountNumber != NULL
+
+//SELECT Id, name, phone FROM Account WHERE (phone != NULL OR Website != NULL) AND AccountNumber != NULL
+
