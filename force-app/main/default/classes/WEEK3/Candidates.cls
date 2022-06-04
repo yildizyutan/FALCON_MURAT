@@ -7,6 +7,7 @@ public class Candidates {
     public void printCandidates() {
 
         System.debug( ' The candidate name is '+name+' ( '+gender+' ) ');
+        
         System.debug('Company name is '+companyName);
 
         /* 
