@@ -1,0 +1,36 @@
+<template>
+
+    <lightning-card title="LIGHTNING RECORD VIEW FORM - CONTACT"            icon-name="standard:account">
+        
+        <div class="slds-var-m-around_medium">
+            
+            <lightning-record-view-form
+                
+                object-api-name={objectName}
+                record-id={recordId}>
+                
+                <div class = "slds-grid slds-gutters">
+
+                    <div class = "slds-col">
+                        <lightning-output-field field-name={name}></lightning-output-field>
+                        <lightning-output-field field-name={accountName}></lightning-output-field>
+                        <lightning-output-field field-name={email}></lightning-output-field>
+                        <lightning-output-field field-name={mobile}></lightning-output-field>
+                    </div>
+
+                    <div class="slds-col">
+                        <lightning-output-field field-name={owner}></lightning-output-field>
+                        <lightning-output-field field-name={title}></lightning-output-field>
+                        <lightning-output-field field-name={phone}></lightning-output-field>
+                    </div>
+                
+
+                </div>
+
+            </lightning-record-view-form>
+        
+        </div>
+
+    </lightning-card>
+    
+</template>

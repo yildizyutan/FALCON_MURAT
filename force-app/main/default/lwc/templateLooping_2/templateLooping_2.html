@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Template Looping - 2">
+                
+        <div class = 'slds-var-m-around_medium'>    
+            
+            <template for:each={contacts} for:item="cont">
+                <div key={cont} >
+                    
+                    First Name : {cont.firstname}
+                    <br>
+                    Last Name : {cont.lastname} 
+                    <br>
+                    Title : {cont.title}
+                    <br>
+                    <br>
+                    <lightning-badge label={cont.firstname}></lightning-badge>
+                    <br>
+                    <lightning-badge label={cont.lastname}></lightning-badge>
+                    <br>
+                    <lightning-badge label={cont.title}></lightning-badge>
+                    <br>
+                    ---***---
+                    <br>
+                </div>
+            </template>
+            
+        </div>
+    </lightning-card>
+    
+</template>
+
+

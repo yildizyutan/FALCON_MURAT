@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="IMPERATIVE APEX - SEARCH ACCOUNTS BY INDUSTRY">
+        <div class="slds-var-m-around_medium">
+            <lightning-combobox
+                label="Select an Industry Type to search"
+                options={industryOptions}
+                value={selectedIndustry}
+                onchange={handleChange}>
+            </lightning-combobox>
+            <div class="slds-var-m-around_medium">
+                <template if:true={accounts}>
+                    <strong>MATCHING ACCOUNTS</strong>
+                    <lightning-datatable
+                        key-field="Id"
+                        data={accounts}
+                        columns={columns}>
+                    </lightning-datatable>
+                </template>
+                <template if:true={error}>
+                    {error}
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>

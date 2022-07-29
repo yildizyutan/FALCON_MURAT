@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="ASSIGMENT WEEK 12 QUESTION 1 (NAME-ROLE)">
+        <div class="slds-var-m-around_medium">
+            <lightning-input
+                type="text"
+                label="Enter your name"
+                value={username}
+                onkeyup={handleUsernameChange}>
+            </lightning-input>
+       </div>  
+       <div class="slds-var-m-around_medium">
+            <lightning-combobox
+                    label="Enter your role"
+                    value={role}
+                    options={roles}
+                    onchange={handleRoleChange} ></lightning-combobox>
+        
+       </div>
+       <div class="slds-var-m-around_medium">Hello, my name is {username} my role is {role}</div>
+    </lightning-card>    
+</template>

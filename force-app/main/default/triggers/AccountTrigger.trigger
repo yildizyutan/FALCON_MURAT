@@ -1,4 +1,10 @@
-
+Trigger AccountTrigger on Account(After Insert, After Update){
+    if(trigger.isAfter){
+        if(trigger.isUpdate){
+            AccountTriggerHandler.getKanyeQuote(Trigger.New, Trigger.oldMap);
+        }
+    }
+}
 
 
 

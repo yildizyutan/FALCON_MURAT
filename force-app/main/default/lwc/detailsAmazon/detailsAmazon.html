@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Deatails Amazon">
+        <div class="slds-var-m-around_medium">
+            
+            <lightning-input 
+                type="text" 
+                label="Enter Company Name"
+                onkeyup={handleChange} 
+                value={details.company}>
+            </lightning-input>
+
+            <div class="slds-var-m-top_small"> The company name is =>{details.company}</div>
+
+            <lightning-input 
+                type="text" 
+                label="Enter Name"
+                onkeyup={handleChange2} 
+                value={details.name}>
+            </lightning-input>
+
+            <div class="slds-var-m-top_small"> The  CEO Name is =>{details.name}</div>
+
+            <lightning-input 
+                type="text" 
+                label="Enter Title"
+                onkeyup={handleChange3} 
+                value={details.title}>
+            </lightning-input>
+
+            <div class="slds-var-m-top_small"> The  title is =>{details.title}</div>
+            
+        </div>
+    </lightning-card>
+
+</template>

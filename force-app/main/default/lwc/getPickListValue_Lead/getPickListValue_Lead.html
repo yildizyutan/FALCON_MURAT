@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="GET PICK LIST VALUE ADAPTER - CASE">
+        <div clss="slds-var-m-around_medium">
+            <lightning-combobox
+                label="Select The Lead Source"
+                options={leadSourceOptions}
+                value={selectedLeadSource}
+                onchange={changeHandler}>
+            </lightning-combobox>
+            <div>
+                Selected Industry is; {selectedLeadSource}
+            </div>
+        </div>
+    </lightning-card>
+</template>

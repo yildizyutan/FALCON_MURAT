@@ -1,0 +1,28 @@
+<template>
+    <lightning-card 
+        title="LIGHTNING RECORD VIEW FORM - OPPORTUNITY"
+        icon-name="standard:opportunity">   
+            <div class="slds-var-m-around_medium">
+                <lightning-record-view-form
+                    object-api-name={objectApiName}
+                    record-id={recordId}>
+
+                    <div class="slds-grid slds-gutters">
+
+                    <div class="slds-col">
+                        <lightning-output-field field-name={fields.oppName}></lightning-output-field>
+                        <lightning-output-field field-name={fields.accName}></lightning-output-field>
+                        <lightning-output-field field-name={fields.oppType}></lightning-output-field>
+                    </div>
+
+                    <div class="slds-col">
+                        <lightning-output-field field-name={fields.oppStage}></lightning-output-field>
+                        <lightning-output-field field-name={fields.oppAmount}></lightning-output-field>
+                        <lightning-output-field field-name={fields.oppLeadSource}></lightning-output-field>
+                    </div>
+                </div>
+                    
+                </lightning-record-view-form>
+            </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,55 @@
+<template>
+    <lightning-card title="CREATE RECORD FUNCTION - OPPORTUNITY" icon-name="standard:">
+        <div class="slds-var-m-around_medium">
+            <form class="opportunityCreateForm">
+
+                        <lightning-input 
+                            type="text"
+                            label="Name"
+                            name="Name"
+                            onchange={changeHandler}>
+                        </lightning-input>
+
+                        <lightning-combobox
+                            label="Select The Stage"
+                            name="StageName"
+                            options={stageOptions}
+                            value={selectedStage}
+                            onchange={changeHandler}>
+                        </lightning-combobox>
+                       
+                        <lightning-input 
+                            type="number"
+                            label="Amount"
+                            name="Amount"
+                            onchange={changeHandler}>
+                        </lightning-input>
+
+                        <lightning-input 
+                            type="date"                           
+                            label="Close Date"
+                            name="CloseDate"
+                            onchange={changeHandler}>
+                        </lightning-input>
+
+                <div class="slds-align_absolute-center" >
+                    <div class=" slds-var-m-top_x-small ">
+                        <lightning-button class="slds-var-m-right_x-small" 
+                            label="Cancel"
+                            variant="neutral"
+                            type="reset">
+                        </lightning-button>
+                        <lightning-button  
+                            label="Create Opportunity"
+                            variant="brand"
+                            onclick={createOpportunity}
+                        >
+                        </lightning-button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </lightning-card>    
+</template>
