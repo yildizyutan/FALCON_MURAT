@@ -1,6 +1,6 @@
 
 import { LightningElement } from 'lwc';
-​
+
 export default class C2pProgressBarParent extends LightningElement {
     value = 10;
     changeHandler(event) {

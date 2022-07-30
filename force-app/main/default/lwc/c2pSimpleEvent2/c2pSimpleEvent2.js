@@ -1,5 +1,5 @@
 import { LightningElement } from 'lwc';
-​
+
 export default class C2pSimpleEvent2 extends LightningElement {
     showDetails = false;
     input;

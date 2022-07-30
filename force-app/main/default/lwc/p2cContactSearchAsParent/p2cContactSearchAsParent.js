@@ -13,7 +13,7 @@ export default class P2cContactSearchAsParent extends LightningElement {
     contacts;
     columns = COLUMNS;
     error="Try an other keyword";
-
+    
     changeHandler(event){
         this.searchWord=event.target.value;
         searchContacts({searchKey: this.searchWord})
@@ -30,7 +30,5 @@ export default class P2cContactSearchAsParent extends LightningElement {
             this.error = error.body.message;
             this.contact = undefined;
         })
-    }
-
-    
+    }   
 }
