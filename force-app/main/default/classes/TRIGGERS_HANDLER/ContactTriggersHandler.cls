@@ -42,21 +42,6 @@ public class ContactTriggersHandler {
             
         }
 }
-
-
-
-
-
-
-
-
-
-
-     
-
-
-    
-    /*
     public static void contactUpdateValidation1(List<contact> cntTriggerNew, List<contact> cntTriggerOld,
                                           Map<id, contact> cntTriggerNewMap, Map<id, contact> cntTriggerOldMap){
              //.AddError is allowed in Trigger.NEW.
@@ -78,6 +63,5 @@ public class ContactTriggersHandler {
                      eachContact.LeadSource.addError('CANNOT UPDATE LEAD SOURCE. Please user!');
                  }
              }
-     }
-     */
+     } 
 }

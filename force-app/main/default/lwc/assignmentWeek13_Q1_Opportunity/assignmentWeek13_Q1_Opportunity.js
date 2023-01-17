@@ -1,26 +1,19 @@
+
 import { LightningElement, wire } from 'lwc';
 
 import { getObjectInfo, getPicklistValues } from 'lightning/uiObjectInfoApi';
+
 import OPPORTUNITY_OBJECT from '@salesforce/schema/Opportunity';
 import STAGE_FIELD from '@salesforce/schema/Opportunity.StageName';
-import opportunityByStage from '@salesforce/apex/assignmentOpportunityThirdQ.opportunityByStage';
+import TYPE_FIELD from '@salesforce/schema/Opportunity.Type';
 
-const COLUMNS = [
-    {label: "Opportunity Name", fieldName:"Name", type:"text"},
-    {label: "Type", fieldName:"Type", type:"text"},
-    {label: "Stage Name", fieldName:"StageName", type:"text"},
-    {label: "Amount", fieldName:"Amount", type:"currency"},
-    {label: "Close Date", fieldName:"CloseDate", type:"date"},    
-];
-
-export default class AssignmentOppThirdQuestion extends LightningElement {
-    columns = COLUMNS;
-    selectedStage;
-    opportunities;
-   
-    rtId;
+export default class AssignmentWeek13_Q1_Opportunity extends LightningElement {
+   rtId;
    stageOptions=[];
-     
+   typeOptions=[];
+   oppName;
+   selectedStage;
+   selectedType;
     @wire(getObjectInfo,{objectApiName: OPPORTUNITY_OBJECT})
     objectInfoHandler({data,error}){
         if(data){
@@ -30,31 +23,34 @@ export default class AssignmentOppThirdQuestion extends LightningElement {
     @wire(getPicklistValues,{
         fieldApiName: STAGE_FIELD, recordTypeId: "$rtId"
     })
-
     stageNameHandler({data,error}){
         if(data){
             this.stageOptions=this.pickListHandler(data);
         }   
     }
-    
+    @wire(getPicklistValues,{
+        fieldApiName: TYPE_FIELD, recordTypeId: "$rtId"
+    })
+    typeHandler({data,error}){
+        if(data){
+            this.typeOptions=this.pickListHandler(data);
+        }   
+    }
     pickListHandler(data){
         return data.values.map(item=>({
             label: item.label, 
             value: item.value
         }));
     }
-
     changeHandler(event) {
-        
+        if (event.target.name==="oppName") {
+            this.oppName=event.target.value
+        } 
+        if (event.target.name==="Type") {
+            this.selectedType=event.target.value
+        } 
         if (event.target.name==="Stage") {
             this.selectedStage=event.target.value
         } 
-        opportunityByStage({stage:this.selectedStage})
-        .then(result=>{
-            this.opportunities=result;
-        })
-        .catch(error=>{
-            console.log(error);
-        })
     } 
 }

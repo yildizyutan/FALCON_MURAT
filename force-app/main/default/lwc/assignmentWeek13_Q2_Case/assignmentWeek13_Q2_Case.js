@@ -1,7 +1,7 @@
 import { getRecord } from 'lightning/uiRecordApi';
 import { LightningElement, wire } from 'lwc';
 
-export default class AssignmentCase extends LightningElement {
+export default class AssignmentWeek13_Q2_Case extends LightningElement {
     recordId="5008c00001Kw6UGAAZ";
 
     accountName;

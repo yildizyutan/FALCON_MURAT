@@ -1,6 +1,15 @@
 
-trigger CaseTrigger on Case (before insert, before update) {
-   //Booklet 17, page 9 
+trigger CaseTrigger on Case (before insert, before update, after insert, after update) {
+    //When a case created, create a task with subject of 'Email'.
+    //We used trigger and trigger handler class
+    
+    if(trigger.isAfter && trigger.isInsert){
+        CaseTriggerHandlers.createDefaultTask(trigger.New, trigger.newMap);
+        
+    }
+}
+   /*
+    //Booklet 17, page 9 
     
     if(trigger.isInsert){
         system.debug('before insert trigger called.');
@@ -14,7 +23,7 @@ trigger CaseTrigger on Case (before insert, before update) {
     }
     
 }
-
+*/
 /*
 trigger CaseTrigger on Case (before insert, before update, after insert, after update) {
     

@@ -1,11 +1,41 @@
 Trigger AccountTrigger on Account(After Insert, After Update){
+  
+    if (trigger.isUpdate) {
+        Set<Id> accIdList = trigger.newMap.keySet();
+        System.debug('accIdList is; ' + accIdList);
+        
+        List<Contact> contListUpdate = new List<Contact>();
+
+        for (Id accId : accIdList) {  
+            System.debug('accId; '+ accId);
+            
+            if (trigger.oldMap.get(accId).IsActive__c != trigger.newMap.get(accId).IsActive__c) {
+                
+                List<Contact> contList = [SELECT Id, Name, IsActive__c FROM Contact WHERE AccountId IN :accIdList];
+                
+                for (Contact cont : contList) {
+                    cont.IsActive__c = trigger.newMap.get(accId).IsActive__c;
+                    contListUpdate.add(cont);
+
+                }     
+            }
+           
+        }
+       
+        update contListUpdate;
+    }
+    
+    
+    /*
+    
+    
     if(trigger.isAfter){
         if(trigger.isUpdate){
             AccountTriggerHandler.getKanyeQuote(Trigger.New, Trigger.oldMap);
         }
     }
 }
-
+    */
 
 
 //TEST FOR TRIGGERS START
@@ -514,4 +544,6 @@ Trigger AccountTrigger on Account(After Insert, After Update){
         }
 
         /////////6
-    }*/
+
+        */
+    }
