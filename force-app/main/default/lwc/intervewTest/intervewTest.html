@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="My BCBSND Clients" icon-name="standard:avatar">
+        <div class="slds-var-m-around_medium">
+            <!-- Display list if data exists -->
+            <template if:true={clients}>
+                <template for:each={clients} for:item="client">
+                    <p key={client.Id} class="slds-var-p-vertical_xx-small">
+                        <strong>{client.Name}</strong> - {client.Phone}
+                    </p>
+                </template>
+            </template>
+            
+            <!-- Display message if no data or error -->
+            <template if:true={error}>
+                <p class="slds-text-color_error">Error loading clients.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
